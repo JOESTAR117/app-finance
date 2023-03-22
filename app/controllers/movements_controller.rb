@@ -23,7 +23,7 @@ class MovementsController < ApplicationController
 
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to movement_url(@movement), notice: 'Movement was successfully created.' }
+        format.html { redirect_to movement_url(@movement), notice: 'Movimentação criada com sucesso' }
         format.json { render :show, status: :created, location: @movement }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class MovementsController < ApplicationController
   def update
     respond_to do |format|
       if @movement.update(movement_params)
-        format.html { redirect_to movement_url(@movement), notice: 'Movement was successfully updated.' }
+        format.html { redirect_to movement_url(@movement), notice: 'Movimentação atualizada com sucesso' }
         format.json { render :show, status: :ok, location: @movement }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class MovementsController < ApplicationController
     @movement.destroy
 
     respond_to do |format|
-      format.html { redirect_to movements_url, notice: 'Movement was successfully destroyed.' }
+      format.html { redirect_to movements_url, notice: 'Movimentação deletada com sucesso' }
       format.json { head :no_content }
     end
   end

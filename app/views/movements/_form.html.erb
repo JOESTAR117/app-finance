@@ -1,7 +1,7 @@
 <%= form_with(model: movement, class: "contents") do |form| %>
   <% if movement.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
+      <h2><%= pluralize(movement.errors.count, "error") %> proibiu que esta movimentação fosse salva:</h2>
 
       <ul>
         <% movement.errors.each do |error| %>
@@ -17,21 +17,21 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :description %>
+    <%= form.label :descrição %>
     <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :value %>
+    <%= form.label :valor %>
     <%= form.number_field :value, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :type %>
+    <%= form.label :tipo %>
     <%= form.text_field :types, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", value:'Finalizar' %>
   </div>
 <% end %>
