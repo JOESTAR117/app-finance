@@ -1,5 +1,9 @@
 class Movement < ApplicationRecord
-  validates :data, :description, :value, :types, presence: true
+  validates :description, :value, :types, presence: true
+
+  validates :description, length: { maximum: 150}
+
+  validates :data, comparison: { less_than_or_equal_to: proc { Date.current } }
 
   enum :types, { saida: 'saida', entrada: 'entrada' }
 
