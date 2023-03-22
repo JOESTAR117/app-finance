@@ -4,10 +4,10 @@ one:
   data: 2023-03-22
   description: MyString
   value: 1
-  type: 
+  types:
 
 two:
   data: 2023-03-22
   description: MyString
   value: 1
-  type: 
+  types:
