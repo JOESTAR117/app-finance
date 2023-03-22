@@ -51,7 +51,7 @@ class MovementsController < ApplicationController
     @movement.destroy
 
     respond_to do |format|
-      format.html { redirect_to movements_url, notice: 'Movimentação deletada com sucesso' }
+      format.html { redirect_to root_path, notice: 'Movimentação deletada com sucesso' }
       format.json { head :no_content }
     end
   end
