@@ -4,6 +4,7 @@ class MovementsController < ApplicationController
   # GET /movements or /movements.json
   def index
     @movements = Movement.all
+    @balance = Movement.entrada.sum(:value) - Movement.saida.sum(:value)
   end
 
   # GET /movements/1 or /movements/1.json
