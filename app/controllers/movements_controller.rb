@@ -3,8 +3,8 @@ class MovementsController < ApplicationController
 
   # GET /movements or /movements.json
   def index
+    @balance = Movement.current_balance
     @movements = Movement.all
-    @balance = Movement.entrada.sum(:value) - Movement.saida.sum(:value)
   end
 
   # GET /movements/1 or /movements/1.json
