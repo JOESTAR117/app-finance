@@ -1,14 +1,11 @@
 class MovementsController < ApplicationController
-  before_action :set_movement, only: %i[show edit update destroy]
+  before_action :set_movement, only: %i[destroy]
 
   # GET /movements or /movements.json
   def index
+    @movements = Movement.order(data: :desc, created_at: :desc)
     @balance = Movement.current_balance
-    @movements = Movement.all
   end
-
-  # GET /movements/1 or /movements/1.json
-  def show; end
 
   # GET /movements/new
   def new
@@ -16,7 +13,6 @@ class MovementsController < ApplicationController
   end
 
   # GET /movements/1/edit
-  def edit; end
 
   # POST /movements or /movements.json
   def create
@@ -24,23 +20,10 @@ class MovementsController < ApplicationController
 
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to movement_url(@movement), notice: 'Movimentação criada com sucesso' }
+        format.html { redirect_to root_path, notice: 'Movimentação criada com sucesso' }
         format.json { render :show, status: :created, location: @movement }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @movement.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /movements/1 or /movements/1.json
-  def update
-    respond_to do |format|
-      if @movement.update(movement_params)
-        format.html { redirect_to movement_url(@movement), notice: 'Movimentação atualizada com sucesso' }
-        format.json { render :show, status: :ok, location: @movement }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movement.errors, status: :unprocessable_entity }
       end
     end

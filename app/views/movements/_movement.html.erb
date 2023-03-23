@@ -1,14 +1,15 @@
 <div id="<%= dom_id movement %>"
-      class="p-6 rounded-lg shadow-lg bg-white flex <%= movement.saida? ?
-      'bg-red-600 text-slate-50 font-bold' : 'bg-green-500 text-slate-50 font-bold'%>
+      class="p-6 rounded-lg shadow-lg bg-white flex
+      <%= movement.saida? ? 'bg-red-600 text-slate-50 font-bold' : 'bg-green-600 text-slate-50 font-bold'%>
       ">
   <span class="mr-2">
     <%= l movement.data %>
   </span>
-  <span class="mr-2 flex-grow">
+    <span class="mr-2 flex-grow">
     <%= movement.description %>
   </span>
   <span>
     <%= number_to_currency movement.value %>
   </span>
+
 </div>
