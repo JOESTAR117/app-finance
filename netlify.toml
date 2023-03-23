@@ -1,7 +1,0 @@
-[build]
-  command = "bundle exec rake assets:precompile && bundle exec jekyll build"
-  publish = "public"
-
-[context.production.environment]
-  SECRET_KEY_BASE = "your_secret_key_base"
-  RAILS_ENV = "production"
