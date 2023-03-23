@@ -1,27 +1,14 @@
-<div id="<%= dom_id movement %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Data:</strong>
-    <%= movement.data %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
+<div id="<%= dom_id movement %>"
+      class="p-6 rounded-lg shadow-lg bg-white flex <%= movement.saida? ?
+      'bg-red-600 text-slate-50 font-bold' : 'bg-green-500 text-slate-50 font-bold'%>
+      ">
+  <span class="mr-2">
+    <%= l movement.data %>
+  </span>
+  <span class="mr-2 flex-grow">
     <%= movement.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Value:</strong>
-    <%= movement.value %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">type:</strong>
-    <%= movement.types %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Ver essa movimentação", movement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Editar essa movimentação", edit_movement_path(movement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  </span>
+  <span>
+    <%= number_to_currency movement.value %>
+  </span>
 </div>

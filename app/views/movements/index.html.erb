@@ -10,14 +10,15 @@
         <%= number_to_currency @balance %>
       </p>
     </div>
+     <%= link_to new_movement_path,
+                class: "rounded-lg shadow-lg p-6 px-5 bg-blue-600 text-white block font-medium text-center" do  %>
+      <span>Nova Movimentação</span>
+     <% end%>
   </div>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Movimentações</h1>
-    <%= link_to 'Nova Movimentação', new_movement_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
 
-  <div id="movements" class="min-w-full">
+
+  <div id="movements" class="grid grid-cols-1 gap-4 min-w-full">
     <%= render @movements %>
   </div>
 </div>
