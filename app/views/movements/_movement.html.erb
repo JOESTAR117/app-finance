@@ -1,7 +1,5 @@
 <div id="<%= dom_id movement %>"
-      class="p-6 rounded-lg shadow-lg bg-white flex
-      <%= movement.saida? ? 'bg-red-600 text-slate-50 font-bold' : 'bg-green-600 text-slate-50 font-bold'%>
-      ">
+      class="p-6 rounded-lg shadow-lg flex font-bold <%= movement.saida? ? 'bg-red-700 text-slate-50' : 'bg-green-600 text-slate-50'%>">
   <span class="mr-2">
     <%= l movement.data %>
   </span>

@@ -1,7 +1,7 @@
 <%= form_with(model: movement, class: "contents") do |form| %>
   <% if movement.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(movement.errors.count, "error") %> proibiu que esta movimentação fosse salva:</h2>
+      <h2><%= pluralize(movement.errors.count, "erros") %> detectado(s):</h2>
 
       <ul>
         <% movement.errors.each do |error| %>
@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="my-5">
+    <%= form.label :tipo %>
+    <%= form.select :types, [['Entrada', 'entrada'], ['Saida', 'saida']], { },
+    {class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"}  %>
+  </div>
 
   <div class="my-5">
    <%= form.label :data %>
@@ -24,11 +30,6 @@
   <div class="my-5">
     <%= form.label :valor %>
     <%= form.number_field :value, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :tipo %>
-    <%= form.text_field :types, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

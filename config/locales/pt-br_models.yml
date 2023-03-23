@@ -1,10 +1,10 @@
 'pt-BR':
   activerecord:
     models:
-      movement: movimentação
+      movement: Movimentação
     attributes:
-      customer:
-        Data: 'Data'
-        Description: 'Descrição'
-        Value: 'Valor'
-        types: 'Tipo'
+      movement:
+        data: "Data"
+        description: "Descrição"
+        value: "Valor"
+        types: "Tipo"
