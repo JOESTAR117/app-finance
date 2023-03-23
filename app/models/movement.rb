@@ -1,7 +1,7 @@
 class Movement < ApplicationRecord
   validates :description, :value, :types, presence: true
 
-  validates :description, length: { maximum: 150}
+  validates :description, length: { maximum: 150 }
 
   validates :data, comparison: { less_than_or_equal_to: proc { Date.current } }
 
