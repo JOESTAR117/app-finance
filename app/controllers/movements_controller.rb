@@ -1,22 +1,23 @@
 class MovementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_movement, only: %i[destroy]
 
   # GET /movements or /movements.json
   def index
-    @movements = Movement.order(data: :desc, created_at: :desc)
-    @balance = Movement.current_balance
+    @movements = collection.order(data: :desc, created_at: :desc)
+    @balance = collection.current_balance
   end
 
   # GET /movements/new
   def new
-    @movement = Movement.new
+    @movement = collection.new
   end
 
   # GET /movements/1/edit
 
   # POST /movements or /movements.json
   def create
-    @movement = Movement.new(movement_params)
+    @movement = collection.new(movement_params)
 
     respond_to do |format|
       if @movement.save
@@ -41,9 +42,13 @@ class MovementsController < ApplicationController
 
   private
 
+  def collection
+    current_user.movement
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_movement
-    @movement = Movement.find(params[:id])
+    @movement = collection.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
